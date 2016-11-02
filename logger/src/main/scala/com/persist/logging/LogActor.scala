@@ -217,6 +217,6 @@ private[logging] class LogActor(done: Promise[Unit], standardHeaders: JsonObject
     case SetFilter(f) => filter = f
 
     case msg: Any =>
-      log.warn("Unrecognized LogActor message:" + msg)(() => DefaultSourceLocation)
+      noConflictLog.warn("Unrecognized LogActor message:" + msg)(() => DefaultSourceLocation)
   }
 }

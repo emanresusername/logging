@@ -89,7 +89,7 @@ private[logging] class FileAppenderActor(path: String, category: String)
       }
       p.success(())
       context.stop(self)
-    case x: Any => log.warn(s"Bad appender message: $x")(() => DefaultSourceLocation)
+    case x: Any => noConflictLog.warn(s"Bad appender message: $x")(() => DefaultSourceLocation)
   }
 
   override def postStop() {

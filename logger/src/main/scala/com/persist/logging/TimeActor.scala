@@ -48,7 +48,7 @@ private[logging] class TimeActor(tdone: Promise[Unit]) extends ActorLogging {
         val traceId = JsonArray(id.trackingId, id.spanId)
         val jitems = jitems0.toSeq.sortBy(jgetInt(_, "time0"))
         val j = JsonObject("@traceId" -> traceId, "items" -> jitems)
-        log.alternative("time", j)
+        noConflictLog.alternative("time", j)
         items -= key
     }
   }

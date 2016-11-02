@@ -19,6 +19,7 @@ trait ActorLogging extends Actor {
   /**
    * The logger.
    */
-  protected lazy val log = new Logger(actorName = Some(actorName))
+  private[this] lazy val log = new Logger(actorName = Some(actorName))
+  def noConflictLog = log
 
 }
